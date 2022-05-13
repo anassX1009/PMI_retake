@@ -1,38 +1,37 @@
 import java.util.ArrayList;
 
-
 public class Dentist {
-    ArrayList<Appointments> apps = new ArrayList<>();
+    ArrayList<Appointments> appointments = new ArrayList<>();
 
-    public void newAppointment(String patientName, String time) {
+    public void newAppointment(String patientName, String timestamp) {
         boolean flag = false;
-        for (int i = 0; i < apps.size(); i++) {
-            if (apps.get(i).getPatientName().equals(patientName)) {
+        for (int i = 0; i < appointments.size(); i++) {
+            if (appointments.get(i).getPatientName().equals(patientName)) {
                 flag = true;
             }
         }
         if (!flag) {
-            apps.add(new Appointments(patientName, time));
+            appointments.add(new Appointments(patientName, timestamp));
         }
 
     }
 
-    public String getApps() {
+    public String getAppointments() {
         String appointment = "";
-        for (int i = 0; i < apps.size(); i++) {
-            if (i < apps.size() - 1) {
-                appointment = appointment + apps.get(i).getPatientName() + " " + apps.get(i).getAppointment() + "\r\n";
+        for (int i = 0; i < appointments.size(); i++) {
+            if (i < appointments.size() - 1) {
+                appointment = appointment + appointments.get(i).getPatientName() + " " + appointments.get(i).getAppointment() + "\r\n";
             } else {
-                appointment = appointment + apps.get(i).getPatientName() + " " + apps.get(i).getAppointment();
+                appointment = appointment + appointments.get(i).getPatientName() + " " + appointments.get(i).getAppointment();
             }
         }
         return appointment;
     }
 
     public void resign(String patientName) {
-        for (int i = 0; i < apps.size(); i++) {
-            if (apps.get(i).getPatientName().equals(patientName)) {
-                apps.remove(i);
+        for (int i = 0; i < appointments.size(); i++) {
+            if (appointments.get(i).getPatientName().equals(patientName)) {
+                appointments.remove(i);
             }
         }
     }
@@ -64,6 +63,7 @@ public class Dentist {
         }
     }
 }
+
 
 
 
